@@ -1,0 +1,8 @@
+python -m venv venv - создание виртуального окружения
+.\venv\Scripts\activate || source venv/bin/activate - для активации виртуального окружения
+pip install django pillow djangorestframework - Для скачивания модулей
+python.exe -m pip install --upgrade pip - Для обновления версии pip 
+django-admin startproject core . - для создания проекта (имя проекта)
+mkdir [имя папки] - создание папки (make directory)
+cd [название папки] - переходит в папку которую указали
+django-admin startapp [название приложения] - Создаёт приложение с указанным именем 

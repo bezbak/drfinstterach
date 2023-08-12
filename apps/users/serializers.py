@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.password_validation import validate_password
 from apps.users.models import User
+from apps.posts.serializers import PostSerilizer
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators = [validate_password,])
@@ -20,3 +21,10 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save
         return user
+    
+class UserSerializer(serializers.ModelSerializer):
+    posts = PostSerilizer(many=True, read_only=True)
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'description', 'profile_image', 'first_name', 'last_login', 'posts')
+

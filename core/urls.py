@@ -5,9 +5,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
 from apps.posts.views import PostViewSet
+from apps.users.views import UserViewSet
 
 router = routers.DefaultRouter()
 router.register(r'posts', PostViewSet)
+router.register(r'users', UserViewSet)
 api_urlpatterns = [
     path('posts/', include('apps.posts.urls')),
     path('users/', include('apps.users.urls')),

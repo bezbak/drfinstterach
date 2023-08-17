@@ -4,7 +4,7 @@ from apps.posts.models import Post
 class PostSerilizer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('id','image_or_video','description', 'created', 'user_info') #!"__all__" 
+        fields = ('id','image_or_video','description','owner', 'created', 'user_info') #!"__all__" 
 
     user_info = serializers.SerializerMethodField()
     def get_user_info(self, obj):

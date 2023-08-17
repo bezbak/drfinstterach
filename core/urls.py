@@ -6,6 +6,7 @@ from django.conf import settings
 from rest_framework import routers
 from apps.posts.views import PostViewSet
 from apps.users.views import UserViewSet
+from django.views.generic import RedirectView
 
 router = routers.DefaultRouter()
 router.register(r'posts', PostViewSet)
@@ -20,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(api_urlpatterns)),
     path('api/', include(router.urls)),
+    path('', RedirectView.as_view(url='/api/'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

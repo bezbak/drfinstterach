@@ -1,4 +1,5 @@
 from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from apps.posts.models import Post  
 from apps.posts.serializers import PostSerilizer
 # Create your views here.
@@ -27,3 +28,4 @@ from apps.posts.serializers import PostSerilizer
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerilizer
+    permission_classes = [IsAuthenticatedOrReadOnly,]

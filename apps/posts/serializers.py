@@ -11,7 +11,7 @@ class PostSerilizer(serializers.ModelSerializer):
         qs = obj.owner
         data = {}
         data.setdefault('id',qs.id)
-        data.setdefault('username',qs.username)
+        data.setdefault('username','Random guy')
         if qs.profile_image:
             data.setdefault('profile_image',qs.profile_image)
         else:
